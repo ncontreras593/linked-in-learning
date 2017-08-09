@@ -31,6 +31,7 @@ import java.time.LocalDate;
 @RequestMapping(ResourceConstants.ROOM_RESERVATION_V1)
 public class ReservationResource {
 
+    // RequestMapping annotation maps web requests onto specific handler classes/methods.
     @RequestMapping(path="", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<ReservationResponse> getAvailableRooms(
             @RequestParam(value = "checkin")
