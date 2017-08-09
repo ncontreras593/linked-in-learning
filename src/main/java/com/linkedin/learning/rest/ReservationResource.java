@@ -34,7 +34,9 @@ public class ReservationResource {
     // RequestMapping annotation maps web requests onto specific handler classes/methods.
     @RequestMapping(path="", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<ReservationResponse> getAvailableRooms(
+            // RequestParam basically maps input values to variables in the function.
             @RequestParam(value = "checkin")
+            // DateTimeFormat declares that a field or method should be formatted as date or time
             @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
             LocalDate checkIn,
             @RequestParam(value = "checkout")
@@ -54,6 +56,7 @@ public class ReservationResource {
 
     @RequestMapping(path="", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<ReservationResponse> updateReservation(
+            // RequestBody indicates that a method param should be bound to the body of the web request
             @RequestBody
             ReservationRequest reservationRequest) {
 
@@ -62,6 +65,7 @@ public class ReservationResource {
 
     @RequestMapping(path = "/{reservationId}", method = RequestMethod.DELETE)
     public ResponseEntity<Void> deleteReservation(
+            // The variable with the PathVariable annotation is used in the RequestMapping path above
             @PathVariable
             long reservationId) {
 
